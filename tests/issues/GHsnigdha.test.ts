@@ -1,4 +1,4 @@
-import { Collection, Entity, IdentifiedReference, ManyToOne, MikroORM, OneToMany, PrimaryKey, Property, Reference, wrap } from '@mikro-orm/core';
+import { Collection, Entity, IdentifiedReference, ManyToOne, MikroORM, OneToMany, PrimaryKey, Property, wrap } from '@mikro-orm/core';
 
 
 @Entity()
@@ -65,7 +65,7 @@ export class Node {
 
 }
 
-describe('GH issue 2774', () => {
+describe('Snigdha test issue', () => {
 
   let orm: MikroORM;
 
@@ -80,7 +80,7 @@ describe('GH issue 2774', () => {
 
   afterAll(() => orm.close(true));
 
-  test('embeddable with only null values should be hydrated', async () => {
+  test('relationships should be cascade persisted', async () => {
     const application = orm.em.create(Application, { name: 'app' });
     await orm.em.persistAndFlush(application);
     const network = new Network('network');
